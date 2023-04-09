@@ -68,3 +68,43 @@ public static double power(double a, int n) {
         return a * power(a, n - 1); 
     }
 }
+// Task 7
+public static void printPermutations(String str) {
+    printPermutationsHelper("", str); 
+}
+
+private static void printPermutationsHelper(String prefix, String str) {
+    int n = str.length();
+    if (n == 0) {
+        System.out.println(prefix); 
+    } else {
+        for (int i = 0; i < n; i++) {
+            String newPrefix = prefix + str.charAt(i);
+            String newStr = str.substring(0, i) + str.substring(i + 1, n); 
+            printPermutationsHelper(newPrefix, newStr); 
+        }
+    }
+}
+
+
+
+// Task 8
+public static boolean isAllDigits(String s) {
+    return s.matches("\\d+"); 
+}
+// Task 9
+public static int binomialCoefficient(int n, int k) {
+    if (k == 0 || k == n) {
+        return 1; 
+    } else {
+        return binomialCoefficient(n-1, k-1) + binomialCoefficient(n-1, k); 
+    }
+}
+// Task 10
+public static int gcd(int a, int b) {
+    if (b == 0) {
+        return a; 
+    } else {
+        return gcd(b, a % b); 
+    }
+}
